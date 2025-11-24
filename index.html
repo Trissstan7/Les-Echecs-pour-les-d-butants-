@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LES ÉCHECS, POUR NE PLUS JAMAIS EN CONNAÎTRE</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- page wrapper -->
+  <header class="site-header">
+    <h1 class="site-title">LES ÉCHECS, POUR NE PLUS JAMAIS EN CONNAÎTRE</h1>
+    <!-- decorative black queen top-right -->
+    <div class="queen-deco" aria-hidden="true">
+      <!-- simple black queen SVG -->
+      <svg viewBox="0 0 64 64" class="queen-svg" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>Reine noire</title>
+        <g fill="#111">
+          <circle cx="10" cy="10" r="3"></circle>
+          <circle cx="18" cy="8" r="3"></circle>
+          <circle cx="26" cy="10" r="3"></circle>
+          <path d="M8 26c6 4 18 4 24 0l4 10c-6 6-22 6-28 0z"></path>
+          <rect x="6" y="36" width="28" height="6" rx="2"></rect>
+          <path d="M4 46h32v6H4z"></path>
+        </g>
+      </svg>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="intro" class="card">
+      <h2>Règles générales</h2>
+      <p>Les échecs se jouent à deux sur un plateau de 8 colonnes (a–h) et 8 rangées (1–8). Chaque joueur commence avec 16 pièces : 1 roi, 1 reine, 2 tours, 2 fous, 2 cavaliers et 8 pions. Le but est de <strong>mettre le roi adverse en échec et mat</strong>, c'est-à-dire l'empêcher d'échapper à une capture au prochain coup.</p>
+
+      <h3>Déroulement d'une partie (simplement)</h3>
+      <ul>
+        <li>Blanc commence toujours.</li>
+        <li>Chaque pièce a une façon précise de se déplacer (voir section « Les pièces »).</li>
+        <li>On capture une pièce en occupant sa case.</li>
+        <li>Il existe des règles particulières : roque, prise en passant, promotion du pion. Elles seront brièvement expliquées plus bas.</li>
+      </ul>
+
+      <h3>Notions clés pour débuter</h3>
+      <ol>
+        <li>Développe tes pièces (ne laisse pas les pièces à l’arrière).</li>
+        <li>Contrôle le centre (cases d4, e4, d5, e5).</li>
+        <li>Protège ton roi (roque tôt si possible).</li>
+        <li>Ne perds pas de pièces gratuitement — regarde les menaces avant de bouger.</li>
+      </ol>
+
+      <div class="rules-note">
+        <strong>Astuce :</strong> pour apprendre, joue des parties lentes et explique tes coups à voix haute — ça aide la mémoire.
+      </div>
+    </section>
+
+    <section id="pieces" class="card">
+      <h2>Les pièces — mouvements et conseils</h2>
+      <p>Cliquer sur une vignette de pièce pour voir ses déplacements mis en évidence sur un petit plateau d'exemple.</p>
+
+      <div class="pieces-grid" id="piecesGrid">
+        <!-- each piece card includes an inline SVG and description -->
+        <article class="piece-card" data-piece="king">
+          <div class="piece-visual" aria-hidden="true">
+            <!-- simple king SVG -->
+            <svg viewBox="0 0 64 64" class="piece-svg" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#000">
+                <rect x="28" y="6" width="8" height="12" rx="2"></rect>
+                <rect x="24" y="18" width="16" height="4" rx="2"></rect>
+                <path d="M16 26c8 6 32 6 40 0v6c-8 6-32 6-40 0z"></path>
+                <rect x="12" y="40" width="40" height="8" rx="3"></rect>
+              </g>
+            </svg>
+          </div>
+          <h3>Roi</h3>
+          <p class="short-desc">Se déplace d'une case dans toutes les directions. Le roi est la pièce la plus importante.</p>
+          <button class="show-moves" data-piece="king">Voir déplacements</button>
+        </article>
+
+        <article class="piece-card" data-piece="queen">
+          <div class="piece-visual" aria-hidden="true">
+            <!-- queen SVG -->
+            <svg viewBox="0 0 64 64" class="piece-svg" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#000">
+                <circle cx="10" cy="10" r="3"></circle>
+                <circle cx="22" cy="8" r="3"></circle>
+                <circle cx="34" cy="10" r="3"></circle>
+                <path d="M8 28c10 6 26 6 36 0v8c-10 8-26 8-36 0z"></path>
+                <rect x="6" y="44" width="44" height="6" rx="3"></rect>
+              </g>
+            </svg>
+          </div>
+          <h3>Reine</h3>
+          <p class="short-desc">Se déplace en lignes droites et en diagonales sur n'importe quelle distance.</p>
+          <button class="show-moves" data-piece="queen">Voir déplacements</button>
+        </article>
+
+        <article class="piece-card" data-piece="rook">
+          <div class="piece-visual" aria-hidden="true">
+            <!-- rook SVG -->
+            <svg viewBox="0 0 64 64" class="piece-svg" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#000">
+                <rect x="10" y="6" width="44" height="6" rx="2"></rect>
+                <rect x="16" y="14" width="32" height="30" rx="3"></rect>
+                <rect x="12" y="46" width="40" height="8" rx="3"></rect>
+              </g>
+            </svg>
+          </div>
+          <h3>Tour</h3>
+          <p class="short-desc">Se déplace uniquement en lignes droites (horizontal, vertical) sur n'importe quelle distance.</p>
+          <button class="show-moves" data-piece="rook">Voir déplacements</button>
+        </article>
+
+        <article class="piece-card" data-piece="bishop">
+          <div class="piece-visual" aria-hidden="true">
+            <!-- bishop SVG -->
+            <svg viewBox="0 0 64 64" class="piece-svg" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#000">
+                <circle cx="32" cy="12" r="6"></circle>
+                <path d="M20 26c6 8 28 8 34 0 0 12-28 20-34 0z"></path>
+                <rect x="14" y="42" width="36" height="8" rx="3"></rect>
+              </g>
+            </svg>
+          </div>
+          <h3>Fou</h3>
+          <p class="short-desc">Se déplace en diagonale sur n'importe quelle distance. Chaque fou reste sur sa couleur initiale.</p>
+          <button class="show-moves" data-piece="bishop">Voir déplacements</button>
+        </article>
+
+        <article class="piece-card" data-piece="knight">
+          <div class="piece-visual" aria-hidden="true">
+            <!-- knight SVG (stylized horse head) -->
+            <svg viewBox="0 0 64 64" class="piece-svg" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#000">
+                <path d="M8 40c6-10 20-18 26-22 6-4 12-2 12 6v18c-12 6-32 6-38-2z"></path>
+                <rect x="6" y="46" width="44" height="6" rx="3"></rect>
+              </g>
+            </svg>
+          </div>
+          <h3>Cavalier</h3>
+          <p class="short-desc">Se déplace en forme de « L » : deux cases dans une direction puis une case perpendiculaire. Il saute par-dessus les pièces.</p>
+          <button class="show-moves" data-piece="knight">Voir déplacements</button>
+        </article>
+
+        <article class="piece-card" data-piece="pawn">
+          <div class="piece-visual" aria-hidden="true">
+            <!-- pawn SVG -->
+            <svg viewBox="0 0 64 64" class="piece-svg" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#000">
+                <circle cx="22" cy="18" r="6"></circle>
+                <path d="M12 30c14 8 28 8 32 0v14c-8 6-28 8-32 0z"></path>
+                <rect x="6" y="52" width="40" height="6" rx="3"></rect>
+              </g>
+            </svg>
+          </div>
+          <h3>Pion</h3>
+          <p class="short-desc">Avance d'une case (ou 2 cases depuis sa position initiale). Capture en diagonale d'une case. Peut être promu en fin de plateau.</p>
+          <button class="show-moves" data-piece="pawn">Voir déplacements</button>
+        </article>
+      </div>
+
+      <div class="specials">
+        <h4>Règles spéciales (courtes)</h4>
+        <ul>
+          <li><strong>Roque :</strong> mouvement simultané du roi et d'une tour pour protéger le roi (conditions : cases libres, pas d'échec traversé, ni échec sur le roi).</li>
+          <li><strong>Prise en passant :</strong> si un pion passe à côté d'un pion adverse qui a avancé de deux cases, il peut être capturé comme s'il n'avait avancé que d'une case (coup suivant uniquement).</li>
+          <li><strong>Promotion :</strong> quand un pion atteint la dernière rangée, il est promu en reine, tour, fou ou cavalier (souvent en reine).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="interactive" class="card">
+      <h2>Visualisation : plateau et déplacements</h2>
+      <p>Exemple interactif : clique sur <em>Voir déplacements</em> d'une pièce pour voir ses mouvements types sur le plateau ci-dessous. Les cases vertes sont des déplacements possibles, les rouges une capture possible (pour l'exemple il n'y a pas d'adversaire — les rouges servent seulement d'illustration pour les pions).</p>
+
+      <div class="board-and-legend">
+        <div id="board" class="board" aria-label="Plateau d'exemple 8 par 8" role="application"></div>
+        <aside class="legend">
+          <div><span class="legend-square highlight"></span> Déplacement possible</div>
+          <div><span class="legend-square capture"></span> Capture possible (pour illustration)</div>
+          <div><button id="clearHighlights" class="btn">Effacer highlights</button></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="resources" class="card">
+      <h2>Pour aller plus loin</h2>
+      <p>Quelques suggestions pour progresser :</p>
+      <ul>
+        <li>Pratique sur des parties lentes (30 min+). Analyse chaque partie après coup.</li>
+        <li>Apprends quelques ouvertures simples (ex. : ouverture italienne, défense française — seulement comme repères).</li>
+        <li>Travaille les finales de base : roi + pion vs roi, tour vs pion, etc.</li>
+      </ul>
+
+      <p class="small">Si tu veux, je peux : fournir un PDF imprimable récapitulant ces règles, générer des exercices (quiz) pour débutants, ou convertir ce contenu en une présentation. Dis-moi ce que tu préfères.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Site pédagogique — pour débutants. Contenu généré pour apprentissage.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
